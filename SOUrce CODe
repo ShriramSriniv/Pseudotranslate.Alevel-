@@ -1,1 +1,70 @@
+class PseudocodeRunner:
+    def __init__(self):
+        # Our imaginary memory to store variables
+        self.variables = {}
+
+    def run(self, pseudocode):
+        # Let's go through each line of your pseudocode
+        for line in pseudocode.split('\n'):
+            # Skip empty lines
+            if not line.strip():
+                continue
+
+            # Let's break down each line into words (tokens)
+            tokens = line.split()
+
+            # Now let's see what you want to do in each line
+            if tokens[0] == 'DECLARE':
+                # You're declaring a new variable
+                self.handle_declaration(tokens)
+            elif tokens[0] == 'SET':
+                # You're assigning a value to a variable
+                self.handle_assignment(tokens)
+            elif tokens[0] == 'DISPLAY':
+                # You want to see the value of a variable
+                self.handle_display(tokens)
+            else:
+                print("Oops! I don't understand:", line)
+
+    def handle_declaration(self, tokens):
+        # You're declaring a variable like: DECLARE x AS INTEGER
+        variable = tokens[1]
+        data_type = tokens[3]
+
+        # Let's remember your variable and its type
+        self.variables[variable] = data_type
+        print(f"Alright, I've noted that {variable} is of type {data_type}.")
+
+    def handle_assignment(self, tokens):
+        # You're setting a value to a variable like: SET x TO 10
+        variable = tokens[1]
+        value = tokens[3]
+
+        # Let's update the value of your variable
+        self.variables[variable] = value
+        print(f"Got it! {variable} is now {value}.")
+
+    def handle_display(self, tokens):
+        # You want to see the value of a variable like: DISPLAY x
+        variable = tokens[1]
+
+        # Let's check if we know about this variable
+        if variable in self.variables:
+            print(f"The value of {variable} is {self.variables[variable]}.")
+        else:
+            print(f"Hmm, I don't know what {variable} is. Did you declare it?")
+
+
+# Let's play with our pseudocode!
+runner = PseudocodeRunner()
+
+# Your pseudocode goes here:
+pseudocode = """
+DECLARE x AS INTEGER
+SET x TO 10
+DISPLAY x
+"""
+
+# Let's see what happens!
+runner.run(pseudocode)
 
