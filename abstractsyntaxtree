@@ -1,0 +1,186 @@
+class AST:
+    pass
+
+
+class Block(AST):
+    def __init__(self, statements):
+        self.statements = statements
+
+
+class Statement(AST):
+    def __init__(self, statement):
+        self.statement = statement
+
+
+class Operation(AST):
+    def __init__(self, operator):
+        self.operator = operator
+        self.value = operator.value
+
+
+class BinaryOperation(AST):
+    def __init__(self, left, operator, right):
+        self.left = left
+        self.operator = operator
+        self.right = right
+
+
+class UnaryOperation(AST):
+    def __init__(self, operator, expression):
+        self.operator = operator
+        self.expression = expression
+
+
+class Value(AST):
+    def __init__(self, token):
+        self.token = token
+
+
+class ConstantDeclaration(AST):
+    def __init__(self, constant, value):
+        self.constant = constant
+        self.value = value
+
+
+class VariableDeclaration(AST):
+    def __init__(self, variable, data_type):
+        self.variable = variable
+        self.data_type = data_type
+
+
+class DataType(AST):
+    def __init__(self, token):
+        self.token = token
+        self.value = token.value
+
+
+class Array(AST):
+    def __init__(self, dimensions, data_type):
+        self.dimensions = dimensions
+        self.data_type = data_type
+
+
+class Dimension(AST):
+    def __init__(self, lower_bound, upper_bound):
+        self.lower_bound = lower_bound
+        self.upper_bound = upper_bound
+
+
+class Index(AST):
+    def __init__(self, index):
+        self.index = index
+
+
+class Assignment(AST):
+    def __init__(self, variable, expression):
+        self.variable = variable
+        self.expression = expression
+
+
+class Input(AST):
+    def __init__(self, input_string, variable):
+        self.input_string = input_string
+        self.variable = variable
+
+
+class Output(AST):
+    def __init__(self, output):
+        self.output = output
+
+
+class LogicalOperation(AST):
+    def __init__(self, left, operator, right):
+        self.left = left
+        self.operator = operator
+        self.right = right
+
+
+class Selection(AST):
+    def __init__(self, condition, block):
+        self.condition = condition
+        self.block = block
+
+
+class Case(AST):
+    def __init__(self, condition, block):
+        self.condition = condition
+        self.block = block
+
+
+class Iteration(AST):
+    def __init__(self, variable, assignment, end, step, block):
+        self.variable = variable
+        self.assignment = assignment
+        self.end = end
+        self.step = step
+        self.block = block
+
+
+class Loop(AST):
+    def __init__(self, condition, block, loop_while):
+        self.condition = condition
+        self.block = block
+        self.loop_while = loop_while
+
+
+class BuiltInFunction(AST):
+    def __init__(self, name, parameters):
+        self.name = name
+        self.parameters = parameters
+        self.parsed_parameters = None
+
+
+class Parameter(AST):
+    def __init__(self, variable, data_type, reference_type):
+        self.variable = variable
+        self.data_type = data_type
+        self.reference_type = reference_type
+
+
+class FunctionCall(AST):
+    def __init__(self, name, parameters):
+        self.name = name
+        self.parameters = parameters
+
+
+class Function(AST):
+    def __init__(self, name, parameters, block, return_type):
+        self.name = name
+        self.parameters = parameters
+        self.block = block
+        self.return_type = return_type
+
+
+class File(AST):
+    def __init__(self, file_name, file_mode):
+        self.file_name = file_name
+        self.file_mode = file_mode
+
+
+class FileMode(AST):
+    def __init__(self, file_mode):
+        self.file_mode = file_mode
+
+
+class FileOperation(AST):
+    def __init__(self, file_name, variable):
+        self.file_name = file_name
+        self.variable = variable
+
+
+class TypeDeclaration(AST):
+    def __init__(self, type_name, block):
+        self.type_name = type_name
+        self.block = block
+
+
+class TypeName(AST):
+    def __init__(self, object_name, field_name):
+        self.object_name = object_name
+        self.field_name = field_name
+
+
+class TypeValue(AST):
+    def __init__(self, object_name, field_name):
+        self.object_name = object_name
+        self.field_name = field_name

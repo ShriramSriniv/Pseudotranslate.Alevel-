@@ -1,0 +1,43 @@
+from copy import deepcopy
+
+class Scope():
+    def __init__(self, parent_scope=None, block=None, parameters=[], return_type=[]):
+        self.symbol_table = SymbolTable()
+        self.parent_scope = parent_scope
+        self.parameters = parameters
+        self.block = block
+        self.return_type = return_type
+        self.data_types = {'INTEGER': int, 'STRING': str, 'REAL': float, 'BOOLEAN': bool, 'CHAR': str}
+        self.user_defined_data_types = {}
+
+        if self.parent_scope:
+            self.data_types = deepcopy(self.parent_scope.data_types)
+            self.user_defined_data_types = parent_scope.user_defined_data_types.copy()
+
+    def declare(self, name, metadata):
+        self.symbol_table.add(name, metadata)
+
+    def assign(self, variable_name, *data):
+        self.values[variable_name].assign(data)
+
+    def get(self, variable_name):
+        value_instance = self.values.get(variable_name)
+        return value_instance.value if value_instance else None
+
+    def init_data_types(self):
+        self.data_types = {'INTEGER': int, 'STRING': str, 'REAL': float, 'BOOLEAN': bool, 'CHAR': str}
+
+    def clear(self):
+        self.values = None
+        self.parameters = None
+
+
+class SymbolTable():
+    def __init__(self):
+        self.symbol_table = {}
+
+    def add(self, name, metadata):
+        self.symbol_table[name] = metadata
+
+    def lookup(self, name):
+        return self.symbol_table.get(name)
