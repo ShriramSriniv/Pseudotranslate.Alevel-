@@ -65,6 +65,3 @@ SET x TO 10
 DISPLAY x
 """
 
-# Let's see what happens!
-runner.run(pseudocode)
-
