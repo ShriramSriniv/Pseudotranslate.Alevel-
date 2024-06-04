@@ -1,5 +1,4 @@
-This program can be a valuable tool for IGCSE AS/A level students learning about programming. By providing a safe and interactive environment to write and test pseudocode, it can help them grasp the logic behind coding concepts and identify errors in their code.
-i hope this works
+The purpose of this Python programme is to meet the needs of computer science students at the IGCSE and AS levels, especially those who need a platform for implementing pseudocode. Pseudocode is not supported by traditional IDEs, hence students are not able to complete their tasks in an ideal setting. Thus, the goal of this programme is to offer a fundamental interface that includes all of the features that are required for thinking and coding according to the AS and IGCSE level syllabus standards. I hope this works😘
 
 1. BuiltInFunction Class
 
