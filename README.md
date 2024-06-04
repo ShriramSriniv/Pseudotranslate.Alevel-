@@ -1,8 +1,6 @@
 This program can be a valuable tool for IGCSE AS/A level students learning about programming. By providing a safe and interactive environment to write and test pseudocode, it can help them grasp the logic behind coding concepts and identify errors in their code.
 i hope this works
 
-Sure, let's provide descriptions and some sample usage for the Python programs you provided:
-
 1. BuiltInFunction Class
 
 Description:
